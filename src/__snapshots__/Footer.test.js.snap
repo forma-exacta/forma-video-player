@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render layout 1`] = `
+<View
+  style={undefined}
+>
+  <TestComponent
+    defaultStyles={
+      Object {
+        "justifyContent": "flex-start",
+      }
+    }
+  />
+  <TestComponent
+    defaultStyles={
+      Object {
+        "justifyContent": "center",
+      }
+    }
+  />
+  <TestComponent
+    defaultStyles={
+      Object {
+        "justifyContent": "flex-end",
+      }
+    }
+  />
+</View>
+`;

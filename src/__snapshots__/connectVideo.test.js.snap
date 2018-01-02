@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`connectVideo should connect with redux dispatch 1`] = `
+Object {
+  "mockActionCreator": [Function],
+}
+`;
+
+exports[`connectVideo should have redux props 1`] = `
+Object {
+  "test": undefined,
+}
+`;

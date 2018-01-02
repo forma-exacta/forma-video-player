@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CircularButton should match snapshot 1`] = `
+<TouchableHighlight
+  activeOpacity={0.85}
+  onPress={undefined}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 50,
+        "justifyContent": "center",
+      },
+      undefined,
+      Object {
+        "height": NaN,
+        "width": NaN,
+      },
+    ]
+  }
+  underlayColor="#fff"
+/>
+`;

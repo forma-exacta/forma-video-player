@@ -1,11 +1,11 @@
 {
   "name": "forma-video-player",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A react native video player packaged with controls that can be customized",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "build": "babel src -d dist --ignore *.test.js --source-maps",
+    "build": "babel src -d dist --ignore *.test.js --source-maps"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,9 @@
     "react-native-video",
     "video",
     "controls",
-    "player"
+    "player",
+    "video-player",
+    "video-controls"
   ],
   "author": "Bob McCracken",
   "license": "MIT",
@@ -28,6 +30,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
@@ -47,7 +50,7 @@
   "dependencies": {
     "create-react-class": "^15.6.2",
     "lodash.merge": "^4.6.0",
-    "lodash.pick": "^4.6.0",
+    "lodash.pick": "^4.4.0",
     "prop-types": "^15.6.0",
     "react-native-slider": "^0.11.0",
     "react-native-timer": "^1.3.1",
@@ -57,9 +60,9 @@
   },
   "peerDependencies": {
     "react-native": "^0.51.0",
+    "react-native-spinkit": "^1.1.1",
     "react-native-vector-icons": "^4.4.3",
-    "react-native-video": "^2.0.0",
-    "react-native-spinkit": "^1.1.1"
+    "react-native-video": "^2.0.0"
   },
   "jest": {
     "setupFiles": [
