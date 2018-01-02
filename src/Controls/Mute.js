@@ -48,6 +48,7 @@ export const Styled = styles((styles, theme) => ({
   button: {
     padding: 5,
     margin: 5,
+    backgroundColor: styles.Mute.buttonColor || 'transparent'
   },
   container: {
     backgroundColor: styles.Mute.backgroundColor || theme.control.backgroundColor

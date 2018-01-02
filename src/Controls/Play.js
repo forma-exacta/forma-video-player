@@ -90,6 +90,7 @@ export const Styled = styles((styles, theme) => ({
   button: {
     padding: 5,
     margin: 5,
+    backgroundColor: styles.Play.buttonColor || 'transparent'
   },
   container: {
     backgroundColor: styles.Play.backgroundColor || theme.control.backgroundColor,

@@ -60,6 +60,7 @@ export const Styled = styles((styles, theme) => ({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: styles.Back.buttonColor || 'transparent'
   },
   container: {
     backgroundColor: styles.Back.backgroundColor || theme.control.backgroundColor
