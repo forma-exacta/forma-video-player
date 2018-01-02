@@ -38,6 +38,7 @@ export class ControlGroup extends Component {
 ControlGroup.defaultStyles = {
   flexDirection: 'row',
   alignItems: 'center',
+  flexShrink: 1
 }
 
 ControlGroup.propTypes = {
