@@ -1,3 +1,8 @@
 export {default as Player} from './PlayerWrapper'
 export {createReducer} from './PlayerWrapper'
 export {connectVideo} from './connectVideo'
+export {default as Header} from './Header'
+export {default as Body} from './Body'
+export {default as Footer} from './Footer'
+export {default as ControlGroup} from './ControlGroup'
+export * from './Controls'
