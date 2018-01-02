@@ -23,8 +23,8 @@ export class PlayerControls extends Component {
 
     return (
       <View style={container}>
-        {Header}
         {Body}
+        {Header}
         {Footer}
         <View style={progressBar}>
           <ProgressBar />
