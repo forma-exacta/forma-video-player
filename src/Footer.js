@@ -60,10 +60,14 @@ const Layout = layout({
 const Styled = styles((styles, theme) => ({
   container: {
     backgroundColor: styles.Footer.backgroundColor || 'transparent',
-    height: 50,
     flexDirection: 'row',
     padding: 5,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    position: 'absolute',
+    height: 50,
+    right: 0,
+    left: 0,
+    bottom: 0
   }
 }))(Layout)
 

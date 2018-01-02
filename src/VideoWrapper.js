@@ -63,13 +63,13 @@ export class VideoWrapper extends Component {
 
   render() {
     const {videoProps} = this.props
-    const {rate, volume, muted, paused, resizeMode, repeat, playInBackground} = this.props.player
+    const {source, rate, volume, muted, paused, resizeMode, repeat, playInBackground} = this.props.player
     const styles = makeStyles(VideoWrapper.defaultStyles, this.props.player.styles)
 
     return (
       <Video
         ref={this.setRef}
-        source={videoProps.source}
+        source={source}
         rate={rate}
         volume={volume}
         muted={muted}
@@ -119,7 +119,8 @@ export default connectVideo(
     'currentTime',
     'duration',
     'ended',
-    'styles'
+    'styles',
+    'source'
   ],
   {
     loading: actions.loading,

@@ -31,15 +31,6 @@ export class Header extends Component {
 
 }
 
-Header.defaultStyles = {
-  header: {
-    height: 50,
-    backgroundColor: 'transparent',
-    justifyContent: 'space-between',
-    flexDirection: 'row'
-  }
-}
-
 Header.propTypes = {
 
   layout: PropTypes.shape({
@@ -67,9 +58,13 @@ const Layout = layout({
 const Styled = styles((styles, theme) => ({
   container: {
     backgroundColor: styles.Header.backgroundColor || 'transparent',
-    height: 50,
     justifyContent: 'space-between',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    left: 0,
+    height: 50
   }
 }))(Layout)
 

@@ -11,30 +11,41 @@ import {connectVideo} from './connectVideo'
 import {actions} from './state'
 import styles from './styles'
 
+const videoPropsToSet = [
+  'source', 'rate', 'volume', 'muted', 'paused', 'resizeMode', 'repeat', 'playInBackground', 'name'
+]
+const propsToWatch = [
+  'back', 'styles', 'theme'
+]
+
 export class Player extends Component {
 
+  constructor(props) {
+    super(props)
+
+    this.setStateFromVideoProps()
+  }
+
+  setStateFromVideoProps = () => {
+
+    videoPropsToSet.forEach((prop) => {
+      (typeof this.props.videoProps[prop] != 'undefined') && this.props.actions[prop](this.props.videoProps[prop])
+    })
+
+  }
+
   componentWillReceiveProps(newProps) {
-    if(newProps.videoProps.name && newProps.videoProps.name != this.props.player.name) {
-      this.props.actions.name(newProps.videoProps.name)
-    }
-
-    if(newProps.back && newProps.back != this.props.player.back) {
-      this.props.actions.back(newProps.back)
-    }
-
-    if(newProps.styles && newProps.styles != this.props.player.styles) {
-      this.props.actions.styles(newProps.styles)
-    }
-
-    if(newProps.theme && newProps.theme != this.props.player.theme) {
-      this.props.actions.theme(newProps.theme)
-    }
+    propsToWatch.forEach((prop) => {
+      if((typeof newProps[prop] != 'undefined') && newProps[prop] != this.props.player[prop]) {
+        this.props.actions[prop](newProps[prop])
+      }
+    })
   }
 
   render() {
 
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, width: '100%'}}>
         <VideoWrapper videoProps={this.props.videoProps} />
         <Overlay
           fadeDuration={300}
@@ -70,11 +81,11 @@ Player.propTypes = {
   })
 }
 
-export const Connected = connectVideo(['paused', 'buffering', 'styles', 'theme', 'name', 'back'], {
-  name: actions.name,
-  back: actions.back,
-  styles: actions.styles,
-  theme: actions.theme
-})(Player)
+export const Connected = connectVideo(['paused', 'buffering'].concat(videoPropsToSet).concat(propsToWatch),
+  videoPropsToSet.concat(propsToWatch).reduce((result, prop) => {
+    result[prop] = actions[prop]
+    return result
+  }, {})
+)(Player)
 
 export default Connected

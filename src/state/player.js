@@ -13,6 +13,7 @@ export const defaultTheme = {
 }
 
 const playerValues = [
+  {name:'source', initial: null},
   {name:'buffering', initial: false},
   {name:'error', initial: null},
   {name:'ignoreSilentSwitch', initial: null},
@@ -27,10 +28,9 @@ const playerValues = [
   {name:'progressUpdateInterval', initial: 250},
   {name:'rate', initial: 1.0},
   {name:'repeat', initial: false},
-  {name:'resizeMode', initial: 'cover'},
+  {name:'resizeMode', initial: 'contain'},
   {name:'volume', initial: 1.0},
   {name:'duration', initial: null},
-  // {name:'currentTime', initial: null},
   {name:'ref', initial: null},
   {name:'ended', initial: false},
   {name:'name', initial: null},
