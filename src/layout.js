@@ -12,15 +12,6 @@ export default layout = (defaultLayout) => {
         this.name = this.constructor.WrappedComponent.name
       }
 
-      shouldComponentUpdate(nextProps) {
-        if(nextProps.layout && nextProps.layout !== this.props.layout) {
-            return true
-        }
-        else {
-          return false
-        }
-      }
-
       render() {
         const layout = {...defaultLayout, ...this.props.layout}
         return <Wrapped {...{...this.props, layout}} />
