@@ -67,3 +67,13 @@ const Styled = styles((styles, theme) => ({
 }))(Layout)
 
 export default Styled
+
+export const makeBody = (left, middle, right) => {
+  return (
+    <Styled layout={{
+      Left: <ControlGroup layout={left} />,
+      Middle: <ControlGroup layout={middle} />,
+      Right: <ControlGroup layout={right} />
+    }} />
+  )
+}

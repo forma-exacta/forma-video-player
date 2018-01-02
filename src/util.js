@@ -23,7 +23,3 @@ export const makeState = (name, values) => {
     }), {}
   ))
 }
-
-export const makeHeader = (left, middle, right) => {}
-export const makeBody = (left, middle, right) => {}
-export const makeFooter = (left, middle, right) => {}
