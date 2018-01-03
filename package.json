@@ -1,6 +1,6 @@
 {
   "name": "forma-video-player",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A react native video player packaged with controls that can be customized",
   "main": "dist/index.js",
   "scripts": {
