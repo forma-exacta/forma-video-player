@@ -115,9 +115,36 @@ A convenient way to define styles for multiple components at once. See the [Them
 Override the default layout for the player. See the [Layout](#layout-1) section for more details.
 
 ## Layout
+By default, the player is laid out on a grid consisting of a [Header](#header), [Body](#Body) and [Footer](#footer), each of which is divided into a Left, Middle, and Right [ControlGroup](#controlgroup)
+
 ![Layout1](https://raw.githubusercontent.com/forma-exacta/forma-video-player/master/docs/layout1.png)
 
 ![Layout2](https://raw.githubusercontent.com/forma-exacta/forma-video-player/master/docs/layout2.png)
+
+#### Default Layout
+```
+{
+  Header: <Header layout={{
+    Left: <ControlGroup layout={[<Back />]} />,
+    Center: <ControlGroup layout={[]} />,
+    Right: <ControlGroup layout={[<Title />]} />,
+  }} />,
+  Body: <Header layout={{
+    Left: <ControlGroup layout={[]} />,
+    Center: <ControlGroup layout={[<Play />]} />,
+    Right: <ControlGroup layout={[]} />,
+  }} />,
+  Footer: <Header layout={{
+    Left: <ControlGroup layout={[<PlayerTime />]} />,
+    Center: <ControlGroup layout={[]} />,
+    Right: <ControlGroup layout={[<Mute />]} />,
+  }} />
+}
+```
+
+#### Custom Layout
+
+##### makeHeader, makeBody, makeFooter
 
 ## Styles
 Most components accept a set of styles that can be used to customize their look. These styles should be passed to the [Player](#player) component with the `styles` prop. The styles prop accepts an object containing styles grouped by component name.
