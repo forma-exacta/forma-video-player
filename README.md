@@ -37,7 +37,7 @@ render() {
 
 ```
 
-![Default Player gif](https://github.com/forma-exacta/forma-video-player/tree/master/docs/default_player.gif)
+![Default Player gif](https://github.com/forma-exacta/forma-video-player/blob/master/docs/default_player.gif)
 
 ## Layout
 ![Layout1](https://github.com/forma-exacta/forma-video-player/tree/master/docs/layout1.png)
