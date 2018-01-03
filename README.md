@@ -40,9 +40,9 @@ render() {
 ![Default Player gif](https://raw.githubusercontent.com/forma-exacta/forma-video-player/master/docs/default_player.gif)
 
 ## Layout
-![Layout1](https://github.com/forma-exacta/forma-video-player/blob/master/docs/layout1.png)
+![Layout1](https://raw.githubusercontent.com/forma-exacta/forma-video-player/master/docs/layout1.png)
 
-![Layout2](https://github.com/forma-exacta/forma-video-player/blob/master/docs/layout2.png)
+![Layout2](https://raw.githubusercontent.com/forma-exacta/forma-video-player/master/docs/layout2.png)
 
 ## Styles
 
