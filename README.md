@@ -46,29 +46,85 @@ render() {
 
 ## Styles
 
-## Theme
+## Themes
+Themes provide a convenient way to change multiple styles at once. The player comes packaged with a default theme, but you can change this by passing your own theme to the Player.
+
+#### Default Theme  
+```
+{
+  control: {
+    size: 25,
+    iconColor: '#ffffff',
+    fontSize: 14,
+    textColor: '#ffffff',
+    underlayColor: '#ffffff',
+    backgroundColor: 'transparent'
+  }
+}
+```
+
+#### Custom Themes
+Custom themes should use the same structure as the default theme. Your custom theme will be deep merged with the default theme, overriding any common properties.
+
+In the following example, the custom theme will make all controls smaller, but the other default theme styles will still be used.
+
+##### Example
+```
+const customTheme = {
+  control: {
+    size: 20
+  }
+}
+
+...
+
+render() {
+  return <Player theme={customTheme} videoProps={...} />
+}
+```
+
 
 ## Player
 
+
+#### Props
+videoProps
+
+back
+
+styles
+
+theme
+
+layout
+
 ## Layout Components
+
+### Header
+
+### Body
+
+### Footer
+
+### ControlGroup
 
 ## Control Components
 
-#### Back
+### Back
 
-#### Mute
+### Mute
 
-#### Play
+### Play
 
-#### PlayerTime
+### PlayerTime
 
-#### ProgressBar
+### ProgressBar
 
-#### Title
+### Title
 
 ## Custom Components
 
-#### connectVideo
+### connectVideo
 
 ## Redux Integration
 
