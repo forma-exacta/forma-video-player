@@ -49,7 +49,7 @@ render() {
 [ControlGroup](#controlgroup)  
 
 ###### Controls
-[Back](#back)  
+[Back](#back-1)  
 [Mute](#mute)  
 [Play](#play)  
 [PlayerTime](#playertime)  
@@ -103,16 +103,16 @@ onBuffer | function | Callback when remote video is buffering | null
 onTimedMetadata | function | Callback when the stream receives some metadata | null
 
 ###### back
-This function will be called by the [Back](#back) control when it is pressed. The function can do anything, but it is intended to transition your navigation state backwards. Useful for full screen players. If this prop is not provided, the Back button will not be displayed.
+This function will be called by the [Back](#back-1) control when it is pressed. The function can do anything, but it is intended to transition your navigation state backwards. Useful for full screen players. If this prop is not provided, the Back button will not be displayed.
 
 ###### styles
-Define styles for the player, grouped by component name. See the [Styles](#styles) section for more details.
+Define styles for the player, grouped by component name. See the [Styles](#styles-1) section for more details.
 
 ###### theme
 A convenient way to define styles for multiple components at once. See the [Themes](#themes) section for more details.
 
 ###### layout
-Override the default layout for the player. See the [Layout](#layout) section for more details.
+Override the default layout for the player. See the [Layout](#layout-1) section for more details.
 
 ## Layout
 ![Layout1](https://raw.githubusercontent.com/forma-exacta/forma-video-player/master/docs/layout1.png)
@@ -120,7 +120,7 @@ Override the default layout for the player. See the [Layout](#layout) section fo
 ![Layout2](https://raw.githubusercontent.com/forma-exacta/forma-video-player/master/docs/layout2.png)
 
 ## Styles
-Most components accept a set of styles that can be used to customize their look. These styles should be passed to the [Player](#player) component with the `styles` prop. The styles prop accepts an object containing styles grouped by component name. 
+Most components accept a set of styles that can be used to customize their look. These styles should be passed to the [Player](#player) component with the `styles` prop. The styles prop accepts an object containing styles grouped by component name.
 
 Example:
 ```
