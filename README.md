@@ -11,6 +11,9 @@ Requires [react-native-video](https://github.com/react-native-community/react-na
 yarn add forma-video-player
 ```
 
+#### exoplayer
+We recommend using exoplayer with react-native-video. It is capable of playing streaming video and has overall better performance than the default player. [Follow these instructions](https://github.com/react-native-community/react-native-video/issues/668#issuecomment-312383674) for installation.
+
 ## Default Player
 ```
 import {Player} from 'forma-video-player'
@@ -37,6 +40,9 @@ render() {
 ![Default Player gif](https://github.com/forma-exacta/forma-video-player/tree/master/docs/default_player.gif)
 
 ## Layout
+![Layout1](https://github.com/forma-exacta/forma-video-player/tree/master/docs/layout1.png)
+
+![Layout2](https://github.com/forma-exacta/forma-video-player/tree/master/docs/layout2.png)
 
 ## Styles
 
@@ -47,6 +53,18 @@ render() {
 ## Layout Components
 
 ## Control Components
+
+#### Back
+
+#### Mute
+
+#### Play
+
+#### PlayerTime
+
+#### ProgressBar
+
+#### Title
 
 ## Custom Components
 
