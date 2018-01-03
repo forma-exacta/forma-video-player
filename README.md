@@ -43,26 +43,70 @@ render() {
 [Player](#player)
 
 ###### Layout Components
-[Header](#header)
-[Body](#body)
-[Footer](#footer)
-[ControlGroup](#controlgroup)
+[Header](#header)  
+[Body](#body)  
+[Footer](#footer)  
+[ControlGroup](#controlgroup)  
 
 ###### Controls
-[Back](#back)
+[Back](#back)  
+[Mute](#mute)  
+[Play](#play)  
+[PlayerTime](#playertime)  
+[ProgressBar](#progressbar)  
+[Title](#title)  
 
 ## Player
+```
+<Player
+  videoProps=object
+  back=function
+  styles=object
+  theme=object
+  layout=object
+/>
+```
 
 #### Props
-videoProps
 
-back
+###### videoProps
+These are the same props accepted by react-native-video's [Video](https://github.com/react-native-community/react-native-video#usage) component, with two exceptions:
 
-styles
+Prop | Type | Description | Default
+--- | --- | ---
+name | string | If a [Title](#title) control is included in the layout, the name will be displayed there. | null
+style | object | This property **will not** be passed to the Video component. The Video component fills its parent container by default. | n/a
 
-theme
+The rest of the props are passed to the Video component. Some defaults differ from react-native-video.
 
-layout
+Prop | Type | Description | Default
+--- | --- | ---
+source | object {uri=string} | Can be a URL or a local file | null
+rate | number | 0 is paused, 1 is normal | 1.0
+volume | number | 0 is muted, 1 is normal | 1.0
+muted | boolean | Mutes the audio entirely | false
+paused | boolean | Pauses playback entirely | true
+resizeMode | string | How the video fills the player. One of 'contain', 'cover', 'stretch' | 'contain'
+repeat | boolean | Automatically repeat after ending | false
+playInBackground | boolean | Audio continues to play when app entering background | false
+playWhenInactive | boolean | [iOS] Video continues to play when control or notification center are shown | false
+ignoreSilentSwitch | string | [iOS] 'ignore' or 'obey' - When 'ignore', audio will still play with the iOS hard silent switch set to silent. When 'obey', audio will toggle with the switch. When not specified, will inherit audio settings as usual | 'ignore'
+progressUpdateInterval | number | [iOS] Interval to fire onProgress | 250
+onLoadStart | function | Callback when video starts to load | null
+onLoad | function | Callback when video loads | null
+onProgress | function | Callback every ~250ms with currentTime | null
+onEnd | function | Callback when playback finishes | null
+onError | function | Callback when video cannot be loaded | null
+onBuffer | function | Callback when remote video is buffering | null
+onTimedMetadata | function | Callback when the stream receives some metadata | null
+
+###### back
+
+###### styles
+
+###### theme
+
+###### layout
 
 ## Layout
 ![Layout1](https://raw.githubusercontent.com/forma-exacta/forma-video-player/master/docs/layout1.png)
