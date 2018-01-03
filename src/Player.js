@@ -49,7 +49,7 @@ export class Player extends Component {
         <VideoWrapper videoProps={this.props.videoProps} />
         <Overlay
           fadeDuration={300}
-          displayDuration={1500}
+          displayDuration={3000}
           forceVisible={this.props.player.paused || this.props.player.buffering}>
           <PlayerControls layout={this.props.layout} />
         </Overlay>
