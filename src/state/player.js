@@ -6,7 +6,7 @@ const playerValues = [
   {name:'source', initial: null},
   {name:'buffering', initial: false},
   {name:'error', initial: null},
-  {name:'ignoreSilentSwitch', initial: null},
+  {name:'ignoreSilentSwitch', initial: 'ignore'},
   {name:'loaded', initial: false},
   {name:'loading', initial: false},
   {name:'metadata', initial: null},
