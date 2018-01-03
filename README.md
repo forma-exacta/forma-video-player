@@ -58,8 +58,10 @@ render() {
 
 ## Player
 ```
+import {Player} from 'forma-video-player'
+
 <Player
-  videoProps=object
+  videoProps=Required object
   back=function
   styles=object
   theme=object
@@ -69,8 +71,7 @@ render() {
 
 #### Props
 
-###### videoProps
-These are the same props accepted by react-native-video's [Video](https://github.com/react-native-community/react-native-video#usage) component, with two exceptions:
+`videoProps` (**Required** object): These are the same props accepted by react-native-video's [Video](https://github.com/react-native-community/react-native-video#usage) component, with two exceptions:  
 
 Prop | Type | Description | Default
 --- | --- | --- | ---
@@ -83,7 +84,7 @@ The rest of the props are passed to the Video component normally. Some defaults 
 
 Prop | Type | Description | Default
 --- | --- | --- | ---
-source | object {uri=string} | Can be a URL or a local file | null
+source | **Required** object {uri=string} | Can be a URL or a local file | null
 rate | number | 0 is paused, 1 is normal | 1.0
 volume | number | 0 is muted, 1 is normal | 1.0
 muted | boolean | Mutes the audio entirely | false
@@ -102,17 +103,13 @@ onError | function | Callback when video cannot be loaded | null
 onBuffer | function | Callback when remote video is buffering | null
 onTimedMetadata | function | Callback when the stream receives some metadata | null
 
-###### back
-This function will be called by the [Back](#back-1) control when it is pressed. The function can do anything, but it is intended to transition your navigation state backwards. Useful for full screen players. If this prop is not provided, the Back button will not be displayed.
+`back` (function): This function will be called by the [Back](#back-1) control when it is pressed. The function can do anything, but it is intended to transition your navigation state backwards. Useful for full screen players. If this prop is not provided, the Back button will not be displayed.
 
-###### styles
-Define styles for the player, grouped by component name. See the [Styles](#styles-1) section for more details.
+`styles` (object): Define styles for the player, grouped by component name. See the [Styles](#styles-1) section for more details.
 
-###### theme
-A convenient way to define styles for multiple components at once. See the [Themes](#themes) section for more details.
+`theme` (object): A convenient way to define styles for multiple components at once. See the [Themes](#themes) section for more details.
 
-###### layout
-Override the default layout for the player. See the [Layout](#layout-1) section for more details.
+`layout` (object): Override the default layout for the player. See the [Layout](#layout-1) section for more details.
 
 ## Layout
 By default, the player is laid out on a grid consisting of a [Header](#header), [Body](#Body) and [Footer](#footer), each of which is divided into a Left, Middle, and Right [ControlGroup](#controlgroup)
@@ -143,8 +140,68 @@ By default, the player is laid out on a grid consisting of a [Header](#header), 
 ```
 
 #### Custom Layout
+A custom layout begins with replacing one or many of the top level layout components ([Header](#header) | [Body](#Body) | [Footer](#footer)) with your own component. This custom component can be a layout component with a custom layout, or any other React Component.
+
+Even if you just want to add or remove one control from the player, you must replace one of the top level layout components.
+
+`Example: Remove the Title control`
+```
+import {Player, Header, ControlGroup} from 'forma-video-player'
+
+const customLayout = {
+  Header: <Header layout={{
+    Left: <ControlGroup layout={[<Back />]} />,
+    Center: <ControlGroup layout={[]} />,
+    Right: <ControlGroup layout={[]} />
+  }} />
+}
+
+...
+
+render() {
+  return <Player layout={customLayout} ... />
+}
+```
+
+In the above example, we override the Header section of the default layout and exclude the Title component. Notice we still have to define the Back component since we are replacing that section as well. Because we did not define a Body or Footer, those sections will still use the default layout.
 
 ##### makeHeader, makeBody, makeFooter
+In order to make control customization a little bit easier, we expose some convenience methods for creating a new Header, Body, and Footer. Instead of defining the entire component tree like we did in the example above, you could just do the following:
+
+`Example: Remove the Title control with makeHeader`
+```
+import {makeHeader} from 'forma-video-player'
+
+const customLayout = {
+  Header: makeHeader([<Back />], [], [])
+}
+
+```
+
+The arrays passed in represent the Left, Middle, and Right sections.
+
+#### `makeHeader(Left, Middle, Right)`  
+
+**Arguments**
+1. `Left` (array): The left section of the Header
+1. `Middle` (array): The middle section of the Header
+1. `Right` (array): The right section of the Header
+
+#### `makeBody(Left, Middle, Right)`  
+
+**Arguments**
+1. `Left` (array): The left section of the Body
+1. `Middle` (array): The middle section of the Body
+1. `Right` (array): The right section of the Body
+
+#### `makeFooter(Left, Middle, Right)`  
+
+**Arguments**
+1. `Left` (array): The left section of the Footer
+1. `Middle` (array): The middle section of the Footer
+1. `Right` (array): The right section of the Footer
+
+
 
 ## Styles
 Most components accept a set of styles that can be used to customize their look. These styles should be passed to the [Player](#player) component with the `styles` prop. The styles prop accepts an object containing styles grouped by component name.
@@ -186,7 +243,7 @@ Custom themes should use the same structure as the default theme. Your custom th
 
 In the following example, the custom theme will make all controls smaller, but the other default theme styles will still be used.
 
-##### Example
+`Example: Reduce the size of all controls`
 ```
 const customTheme = {
   control: {
@@ -197,7 +254,7 @@ const customTheme = {
 ...
 
 render() {
-  return <Player theme={customTheme} videoProps={...} />
+  return <Player theme={customTheme} ... />
 }
 ```
 
@@ -235,3 +292,4 @@ render() {
 
 ## Roadmap
 * Add more styling options
+* Support for multiple mounted players
