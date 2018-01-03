@@ -64,7 +64,6 @@ export class VideoWrapper extends Component {
   render() {
     const {videoProps} = this.props
     const {source, rate, volume, muted, paused, resizeMode, repeat, playInBackground} = this.props.player
-    const styles = makeStyles(VideoWrapper.defaultStyles, this.props.player.styles)
 
     return (
       <Video
@@ -84,18 +83,12 @@ export class VideoWrapper extends Component {
         onError={this.onError}
         onBuffer={this.onBuffer}
         onTimedMetadata={this.onTimedMetadata}
-        style={styles.video}
+        style={{position: 'absolute', top: 0, right: 0, bottom: 0, left: 0}}
       />
     )
   }
 
 
-}
-
-VideoWrapper.defaultStyles = {
-  video: {
-    position: 'absolute', top: 0, right: 0, bottom: 0, left: 0
-  }
 }
 
 export default connectVideo(
