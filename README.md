@@ -39,6 +39,31 @@ render() {
 
 ![Default Player gif](https://raw.githubusercontent.com/forma-exacta/forma-video-player/master/docs/default_player.gif)
 
+## Components
+[Player](#player)
+
+###### Layout Components
+[Header](#header)
+[Body](#body)
+[Footer](#footer)
+[ControlGroup](#controlgroup)
+
+###### Controls
+[Back](#back)
+
+## Player
+
+#### Props
+videoProps
+
+back
+
+styles
+
+theme
+
+layout
+
 ## Layout
 ![Layout1](https://raw.githubusercontent.com/forma-exacta/forma-video-player/master/docs/layout1.png)
 
@@ -83,20 +108,7 @@ render() {
 }
 ```
 
-
-## Player
-
-
-#### Props
-videoProps
-
-back
-
-styles
-
-theme
-
-layout
+> **Theme styles will only be applied once when the player is created**. Updating the theme prop that is passed to the player will have no effect.
 
 ## Layout Components
 

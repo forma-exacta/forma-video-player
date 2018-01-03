@@ -10,12 +10,13 @@ import Overlay from './Overlay'
 import {connectVideo} from './connectVideo'
 import {actions} from './state'
 import styles from './styles'
+import {makeTheme} from './util'
 
 const videoPropsToSet = [
   'source', 'rate', 'volume', 'muted', 'paused', 'resizeMode', 'repeat', 'playInBackground', 'name'
 ]
 const propsToWatch = [
-  'back', 'styles', 'theme'
+  'back', 'styles'
 ]
 
 export class Player extends Component {
@@ -24,6 +25,7 @@ export class Player extends Component {
     super(props)
 
     this.setStateFromVideoProps()
+    props.theme && props.actions.theme(makeTheme(props.theme))
   }
 
   setStateFromVideoProps = () => {
@@ -33,6 +35,8 @@ export class Player extends Component {
     })
 
   }
+
+
 
   componentWillReceiveProps(newProps) {
     propsToWatch.forEach((prop) => {
@@ -81,11 +85,11 @@ Player.propTypes = {
   })
 }
 
-export const Connected = connectVideo(['paused', 'buffering'].concat(videoPropsToSet).concat(propsToWatch),
+export const Connected = connectVideo(['paused', 'buffering', 'theme'].concat(videoPropsToSet).concat(propsToWatch),
   videoPropsToSet.concat(propsToWatch).reduce((result, prop) => {
     result[prop] = actions[prop]
     return result
-  }, {})
+  }, {theme: actions.theme})
 )(Player)
 
 export default Connected
