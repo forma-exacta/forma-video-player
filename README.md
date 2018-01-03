@@ -77,7 +77,9 @@ Prop | Type | Description | Default
 name | string | If a [Title](#title) control is included in the layout, the name will be displayed there. | null
 style | object | This property **will not** be passed to the Video component. The Video component fills its parent container by default. | n/a
 
-The rest of the props are passed to the Video component. Some defaults differ from react-native-video.
+The rest of the props are passed to the Video component normally. Some defaults differ from react-native-video.
+
+> We recommend that you only use these properties to set initial values. Updating these properties will trigger a render of the entire Player tree. Instead, you should use a [Control Component](#control-components) or make your own [Custom Control](#custom-controls) to change the player state.
 
 Prop | Type | Description | Default
 --- | --- | --- | ---
@@ -101,12 +103,16 @@ onBuffer | function | Callback when remote video is buffering | null
 onTimedMetadata | function | Callback when the stream receives some metadata | null
 
 ###### back
+This function will be called by the [Back](#back) control when it is pressed. The function can do anything, but it is intended to transition your navigation state backwards. Useful for full screen players. If this prop is not provided, the Back button will not be displayed.
 
 ###### styles
+Define styles for the player, grouped by component name. See the [Styles](#styles) section for more details.
 
 ###### theme
+A convenient way to define styles for multiple components at once. See the [Themes](#themes) section for more details.
 
 ###### layout
+Override the default layout for the player. See the [Layout](#layout) section for more details.
 
 ## Layout
 ![Layout1](https://raw.githubusercontent.com/forma-exacta/forma-video-player/master/docs/layout1.png)
@@ -114,6 +120,22 @@ onTimedMetadata | function | Callback when the stream receives some metadata | n
 ![Layout2](https://raw.githubusercontent.com/forma-exacta/forma-video-player/master/docs/layout2.png)
 
 ## Styles
+Most components accept a set of styles that can be used to customize their look. These styles should be passed to the [Player](#player) component with the `styles` prop. The styles prop accepts an object containing styles grouped by component name. 
+
+Example:
+```
+{
+  Mute: {
+    iconColor: 'red',
+    size: 30
+  },
+  Title: {
+    textColor: 'blue'
+  }
+}
+```
+
+See each [component](#components) for more details about the styles it accepts.
 
 ## Themes
 Themes provide a convenient way to change multiple styles at once. The player comes packaged with a default theme, but you can change this by passing your own theme to the Player.
@@ -178,7 +200,7 @@ render() {
 
 ### Title
 
-## Custom Components
+## Custom Controls
 
 ### connectVideo
 
