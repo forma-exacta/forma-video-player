@@ -140,11 +140,11 @@ By default, the player is laid out on a grid consisting of a [Header](#header), 
 ```
 
 #### Custom Layout
-A custom layout begins with replacing one or many of the top level layout components ([Header](#header) | [Body](#Body) | [Footer](#footer)) with your own component. This custom component can be a layout component with a custom layout, or any other React Component.
+A custom layout begins with replacing one or many of the top level layout components ([Header](#header) | [Body](#Body) | [Footer](#footer)) with your own component. This custom component can be a Layout Component with a custom layout prop, or any other React Component.
 
 Even if you just want to add or remove one control from the player, you must replace one of the top level layout components.
 
-`Example: Remove the Title control`
+##### `Example: Remove the Title control`
 ```
 import {Player, Header, ControlGroup} from 'forma-video-player'
 
@@ -168,7 +168,7 @@ In the above example, we override the Header section of the default layout and e
 ##### makeHeader, makeBody, makeFooter
 In order to make control customization a little bit easier, we expose some convenience methods for creating a new Header, Body, and Footer. Instead of defining the entire component tree like we did in the example above, you could just do the following:
 
-`Example: Remove the Title control with makeHeader`
+##### `Example: Remove the Title control with makeHeader`
 ```
 import {makeHeader} from 'forma-video-player'
 
@@ -206,7 +206,7 @@ The arrays passed in represent the Left, Middle, and Right sections.
 ## Styles
 Most components accept a set of styles that can be used to customize their look. These styles should be passed to the [Player](#player) component with the `styles` prop. The styles prop accepts an object containing styles grouped by component name.
 
-Example:
+##### `Example: Custom styles object`
 ```
 {
   Mute: {
@@ -243,7 +243,7 @@ Custom themes should use the same structure as the default theme. Your custom th
 
 In the following example, the custom theme will make all controls smaller, but the other default theme styles will still be used.
 
-`Example: Reduce the size of all controls`
+##### `Example: Reduce the size of all controls`
 ```
 const customTheme = {
   control: {
