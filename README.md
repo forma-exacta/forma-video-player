@@ -73,14 +73,14 @@ render() {
 These are the same props accepted by react-native-video's [Video](https://github.com/react-native-community/react-native-video#usage) component, with two exceptions:
 
 Prop | Type | Description | Default
---- | --- | ---
+--- | --- | --- | ---
 name | string | If a [Title](#title) control is included in the layout, the name will be displayed there. | null
 style | object | This property **will not** be passed to the Video component. The Video component fills its parent container by default. | n/a
 
 The rest of the props are passed to the Video component. Some defaults differ from react-native-video.
 
 Prop | Type | Description | Default
---- | --- | ---
+--- | --- | --- | ---
 source | object {uri=string} | Can be a URL or a local file | null
 rate | number | 0 is paused, 1 is normal | 1.0
 volume | number | 0 is muted, 1 is normal | 1.0
