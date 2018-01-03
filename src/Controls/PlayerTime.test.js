@@ -3,7 +3,7 @@ import configureStore from 'redux-mock-store'
 import ShallowTestRenderer from 'react-test-renderer/shallow'
 
 import PlayerTime from './PlayerTime'
-import {defaultTheme} from '../state/player'
+import {defaultTheme} from '../defaultTheme'
 
 describe('PlayerTime', () => {
 

@@ -1,16 +1,6 @@
 import {State} from 'replate'
 import {makeState} from '../util'
-
-export const defaultTheme = {
-  control: {
-    size: 25,
-    iconColor: '#ffffff',
-    fontSize: 14,
-    textColor: '#ffffff',
-    underlayColor: '#ffffff',
-    backgroundColor: 'transparent'
-  }
-}
+import {defaultTheme} from '../defaultTheme'
 
 const playerValues = [
   {name:'source', initial: null},

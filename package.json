@@ -1,11 +1,11 @@
 {
   "name": "forma-video-player",
-  "version": "0.0.3",
   "description": "A react native video player packaged with controls that can be customized",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "build": "babel src -d dist --ignore *.test.js --source-maps"
+    "build": "babel src -d dist --ignore *.test.js --source-maps",
+    "localBuild": "yarn build && rm -rf ../forma-video-player-local/dist ../forma-video-player-local/src ../forma-video-player-local/package.json && cp -rf ./dist ../forma-video-player-local/dist && cp -rf ./src ../forma-video-player-local/src && cp ./package.json ../forma-video-player-local/package.json"
   },
   "repository": {
     "type": "git",
@@ -53,15 +53,15 @@
     "lodash.pick": "^4.4.0",
     "prop-types": "^15.6.0",
     "react-native-slider": "^0.11.0",
+    "react-native-spinkit": "^1.1.1",
     "react-native-timer": "^1.3.1",
+    "react-native-vector-icons": "^4.4.3",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "replate": "^2.0.3"
   },
   "peerDependencies": {
     "react-native": "^0.51.0",
-    "react-native-spinkit": "^1.1.1",
-    "react-native-vector-icons": "^4.4.3",
     "react-native-video": "^2.0.0"
   },
   "jest": {

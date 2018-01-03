@@ -2,7 +2,7 @@ import React from 'react'
 import configureStore from 'redux-mock-store'
 
 import Title from './Title'
-import {defaultTheme} from '../state/player'
+import {defaultTheme} from '../defaultTheme'
 
 describe('Title', () => {
 

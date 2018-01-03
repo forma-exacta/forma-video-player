@@ -3,7 +3,7 @@ import configureStore from 'redux-mock-store'
 
 import Play from './Play'
 import CircularButton from './CircularButton'
-import {defaultTheme} from '../state/player'
+import {defaultTheme} from '../defaultTheme'
 
 describe('Play', () => {
 

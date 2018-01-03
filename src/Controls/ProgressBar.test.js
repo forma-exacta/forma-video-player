@@ -2,7 +2,7 @@ import React from 'react'
 import configureStore from 'redux-mock-store'
 
 import ProgressBar from './ProgressBar'
-import {defaultTheme} from '../state/player'
+import {defaultTheme} from '../defaultTheme'
 
 describe('ProgressBar', () => {
 

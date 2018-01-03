@@ -2,6 +2,7 @@ import React from 'react'
 import createReactClass from 'create-react-class'
 import {merge, pick} from 'lodash'
 import {State} from 'replate'
+import {defaultTheme} from './defaultTheme'
 
 const ReactComponentPrototype = React.Component.prototype
 const ReactClassComponentPrototype = (Object.getPrototypeOf(Object.getPrototypeOf(new (createReactClass({ render () {} }))())))
@@ -22,4 +23,8 @@ export const makeState = (name, values) => {
       })
     }), {}
   ))
+}
+
+export const makeTheme = (theme) => {
+  return merge(defaultTheme, theme)
 }

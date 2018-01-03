@@ -4,7 +4,7 @@ import ShallowTestRenderer from 'react-test-renderer/shallow'
 import configureStore from 'redux-mock-store'
 
 import Back from './Back'
-import {defaultTheme} from '../state/player'
+import {defaultTheme} from '../defaultTheme'
 
 describe('Back', () => {
 
