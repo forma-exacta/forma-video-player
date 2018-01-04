@@ -113,7 +113,7 @@ onTimedMetadata | function | Callback when the stream receives some metadata | n
 `layout` (object): Override the default layout for the player. See the [Layout](#layout) section for more details.
 
 ## Layout
-By default, the player is laid out on a grid consisting of a [Header](#header), [Body](#Body) and [Footer](#footer), each of which is divided into a Left, Middle, and Right [ControlGroup](#controlgroup)
+By default, the player is laid out on a grid consisting of a [Header](#header), [Body](#body) and [Footer](#footer), each of which is divided into a Left, Middle, and Right [ControlGroup](#controlgroup)
 
 ![Layout1](https://raw.githubusercontent.com/forma-exacta/forma-video-player/master/docs/layout1.png)
 
