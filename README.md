@@ -568,7 +568,7 @@ export default styles((state, theme) => ({
 ```
 
 ## Redux Integration
-
+Coming soon...currently the player uses its own store, even if a Provider already exists.
 
 ## Roadmap
 * Add more style / theme options

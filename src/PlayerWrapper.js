@@ -22,13 +22,19 @@ export default class PlayerWrapper extends Component {
 
   render() {
 
-    return this.store ? (
+    return (
       <Provider store={this.store}>
         <Player {...this.props} />
       </Provider>
-    ) : (
-      <Player {...this.props} />
     )
+
+    // return this.store ? (
+    //   <Provider store={this.store}>
+    //     <Player {...this.props} />
+    //   </Provider>
+    // ) : (
+    //   <Player {...this.props} />
+    // )
 
   }
 
