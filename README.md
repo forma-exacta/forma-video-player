@@ -55,8 +55,9 @@ render() {
 [PlayerTime](#playertime)  
 [ProgressBar](#progressbar)  
 [Title](#title)  
+Add your own [Custom Controls](#custom-controls)
 
-## Player
+## `Player`
 ```
 import {Player} from 'forma-video-player'
 
@@ -165,6 +166,16 @@ render() {
 
 In the above example, we override the Header section of the default layout and exclude the Title component. Notice we still have to define the Back component since we are replacing that section as well. Because we did not define a Body or Footer, those sections will still use the default layout.
 
+##### null
+Passing null for any of the layout sections will exclude that section
+
+##### `Example: Exclude Header section`
+```
+const customLayout = {
+  Header: null
+}
+```
+
 ##### makeHeader, makeBody, makeFooter
 In order to make control customization a little bit easier, we expose some convenience methods for creating a new Header, Body, and Footer. Instead of defining the entire component tree like we did in the example above, you could just do the following:
 
@@ -261,35 +272,304 @@ render() {
 > **Theme styles will only be applied once when the player is created**. Updating the theme prop that is passed to the player will have no effect.
 
 ## Layout Components
+Layout components are intended to affect the positioning of controls within the player.
 
-### Header
+## `Header`
+Defines the top row of the player layout
 
-### Body
+```
+import {Header} from 'forma-video-player'
 
-### Footer
+<Header
+  layout=object
+/>
+```
 
-### ControlGroup
+#### Props
+`layout` (object): Must include a Left, Middle, and Right section
+
+## `Body`
+Defines the middle row of the player layout
+
+```
+import {Body} from 'forma-video-player'
+
+<Body
+  layout=object
+/>
+```
+
+#### Props
+`layout` (object): Must include a Left, Middle, and Right section
+
+## `Footer`
+Defines the bottom row of the player layout
+
+```
+import {Footer} from 'forma-video-player'
+
+<Footer
+  layout=object
+/>
+```
+
+#### Props
+`layout` (object): Must include a Left, Middle, and Right section
+
+## `ControlGroup`
+A control group renders an array of Controls, in their array order
+
+```
+import {ControlGroup} from 'forma-video-player'
+
+<ControlGroup
+  layout=object
+/>
+```
+
+#### Props
+`layout` (array): An array of components. Each will be rendered in their array order, in a row.
 
 ## Control Components
 
-### Back
+## `Back`
+Back button with a left arrow icon. When pressed, this calls the `back` function passed into the [Player](#player).
 
-### Mute
+```
+import {Back} from 'forma-video-player'
 
-### Play
+<Back />
+```
 
-### PlayerTime
+#### Styles
+Name | Type | Description | Default
+--- | --- | --- | ---
+buttonColor | string | button fill color | 'transparent'
+backgroundColor | string | container background color | [theme](#default-theme) control.backgroundColor
+underlayColor | string | button color on press | [theme](#default-theme) control.underlayColor
+size | number | size of the control | [theme](#default-theme) control.size
+iconColor | string | color of the button icon | [theme](#default-theme) control.iconColor
 
-### ProgressBar
+## `Mute`
+Toggles the player volume on and off
 
-### Title
+```
+import {Mute} from 'forma-video-player'
+
+<Mute />
+```
+
+#### Styles
+Name | Type | Description | Default
+--- | --- | --- | ---
+buttonColor | string | button fill color | 'transparent'
+backgroundColor | string | container background color | [theme](#default-theme) control.backgroundColor
+underlayColor | string | button color on press | [theme](#default-theme) control.underlayColor
+size | number | size of the control | [theme](#default-theme) control.size
+iconColor | string | color of the button icon | [theme](#default-theme) control.iconColor
+
+## `Play`
+Toggles play/pause
+
+```
+import {Play} from 'forma-video-player'
+
+<Play />
+```
+
+#### Styles
+Name | Type | Description | Default
+--- | --- | --- | ---
+buttonColor | string | button fill color | 'transparent'
+backgroundColor | string | container background color | [theme](#default-theme) control.backgroundColor
+underlayColor | string | button color on press | [theme](#default-theme) control.underlayColor
+size | number | size of the control | [theme](#default-theme) control.size
+iconColor | string | color of the button icon | [theme](#default-theme) control.iconColor
+
+## `PlayerTime`
+Displays the currentTime and video duration, ie `0:00 / 2:00`
+
+```
+import {PlayerTime} from 'forma-video-player'
+
+<PlayerTime />
+```
+
+#### Styles
+Name | Type | Description | Default
+--- | --- | --- | ---
+backgroundColor | string | container background color | [theme](#default-theme) control.backgroundColor
+fontSize | number | size of the font | [theme](#default-theme) control.fontSize
+textColor | string | color of the text | [theme](#default-theme) control.textColor
+
+## `ProgressBar`
+Tracks the current time in video. Drag to seek. This component wraps Slider from [react-native-slider](https://github.com/jeanregisser/react-native-slider)
+
+```
+import {ProgressBar} from 'forma-video-player'
+
+<ProgressBar />
+```
+
+#### Styles
+Name | Type | Description | Default
+--- | --- | --- | ---
+thumbStyle | object | style of the thumb circle | {width: 10, height: 10, borderWidth: 1, borderColor: 'red'},
+thumbTintColor | string | fill color of the thumb circle | '#f00'
+trackStyle | object | styling for the progress track | {backgroundColor: '#666677ff', borderRadius: 0}
+minimumTrackTintColor | string | color of the track where time has elapsed | '#f00'
+
+## `Title`
+Displays the video title
+
+```
+import {Title} from 'forma-video-player'
+
+<Title />
+```
+
+#### Styles
+Name | Type | Description | Default
+--- | --- | --- | ---
+backgroundColor | string | container background color | [theme](#default-theme) control.backgroundColor
+fontSize | number | size of the font | [theme](#default-theme) control.fontSize
+textColor | string | color of the text | [theme](#default-theme) control.textColor
 
 ## Custom Controls
+Player state is maintained by a redux store. This makes it easier to pass specific pieces of player state to controls without having to worry about unwanted renders. It also makes it pretty easy to implement your own controls.
 
-### connectVideo
+#### State
+The store contains all props that can be passed to react-native-video's Video component, plus a few more:
+
+Name | Initial Value
+--- | ---
+source | null
+buffering | false
+error | null
+ignoreSilentSwitch | 'ignore'
+loaded | false
+loading | false
+metadata | null
+muted | false
+paused | true
+playInBackground | false
+playWhenInactive | false
+progress | null
+progressUpdateInterval | 250
+rate | 1.0
+repeat | false
+resizeMode | 'contain'
+volume | 1.0
+duration | null
+ref | null
+ended | false
+name | null
+back | null
+styles | {}
+theme | [defaultTheme](#default-theme)
+currentTime | null
+
+#### Actions
+We also expose a setter action for each of the above that has the same name as the state it sets. See the `connectVideo` example below.
+
+### `connectVideo([state], [actions], [mergeProps], [options])`
+A wrapper around redux's `connect` method with a syntax tailored to the player's state. When a component is wrapped in connectVideo, player state will be exposed in props.player and redux actions will be exposed in props.actions.
+
+**Arguments**
+1. `state` (array): An array of string, each of which is a piece of [state](#state)
+1. `actions` (object): Keys are the action name in props and values are the action methods
+
+##### `Example: Connect to player state and actions`
+
+```
+import React, {Component} from 'react'
+import {TouchableHighlight, Text} from 'react-native'
+import {connectVideo, actions} from 'forma-video-player'
+
+class Repeat extends Component {
+
+  toggleRepeat = () => {
+    const {player, actions} = this.props
+
+    actions.repeat(!player.repeat)
+  }
+
+  render() {
+    const {player} = this.props
+
+    return (
+      <TouchableHighlight onPress={this.toggleRepeat}>
+        <Text style={{color: 'blue'}}>{player.repeat ? 'repeat' : 'do not repeat'}</Text>
+      </TouchableHighlight>
+    )
+  }
+}
+
+export default connectVideo(['repeat'], {
+  repeat: actions.repeat
+})(Repeat)
+```
+
+### `styles(styleFn)`
+Internally, this is used to connect player components to custom state and themes. You can use if for your custom controls as well.
+
+**Arguments**
+1. `styleFn` (function): a function that accepts state and theme arguments and returns an object of styles. The 'state' argument will be the styles you pass into the [Player](#player) props. The theme argument will be set to the configured theme.
+  ```
+    (state, theme) => ({
+      styleName: 'styleValue',
+      groupStyles: {
+        anotherStyle: state.ControlName.anotherStyle,
+        defaultToTheme: state.ControlName.undefined || theme.defaultValue
+      }
+    })
+  ```
+
+##### `Example: Connect to styles`
+Let's use the Repeat control again
+
+```
+import React, {Component} from 'react'
+import {TouchableHighlight, Text} from 'react-native'
+import {connectVideo, actions, styles} from 'forma-video-player'
+
+class Repeat extends Component {
+
+  toggleRepeat = () => {
+    const {player, actions} = this.props
+
+    console.log(this.props)
+
+    actions.repeat(!player.repeat)
+  }
+
+  render() {
+    const {player, styles} = this.props
+
+    return (
+      <TouchableHighlight onPress={this.toggleRepeat} underlayColor={styles.underlayColor}>
+        <Text style={{color: styles.text.color, fontSize: styles.text.size}}>{player.repeat ? 'repeat' : 'do not repeat'}</Text>
+      </TouchableHighlight>
+    )
+  }
+}
+
+const connected = connectVideo(['repeat'], {
+  repeat: actions.repeat
+})(Repeat)
+
+export default styles((state, theme) => ({
+  underlayColor: state.Repeat.underlayColor || theme.underlayColor,   // pull from user styles or theme
+  text: {
+    color: state.Repeat.textColor || 'blue',                          // hardcode a default
+    size: 25                                                          // hardcode style
+  }
+}))(connected)
+```
 
 ## Redux Integration
 
+
 ## Roadmap
-* Add more styling options
+* Add more style / theme options
 * Support for multiple mounted players
