@@ -110,7 +110,7 @@ onTimedMetadata | function | Callback when the stream receives some metadata | n
 
 `theme` (object): A convenient way to define styles for multiple components at once. See the [Themes](#themes) section for more details.
 
-`layout` (object): Override the default layout for the player. See the [Layout](#layout-1) section for more details.
+`layout` (object): Override the default layout for the player. See the [Layout](#layout) section for more details.
 
 ## Layout
 By default, the player is laid out on a grid consisting of a [Header](#header), [Body](#Body) and [Footer](#footer), each of which is divided into a Left, Middle, and Right [ControlGroup](#controlgroup)
