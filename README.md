@@ -49,7 +49,7 @@ render() {
 [ControlGroup](#controlgroup)  
 
 ###### Controls
-[Back](#back-1)  
+[Back](#back)  
 [Mute](#mute)  
 [Play](#play)  
 [PlayerTime](#playertime)  
