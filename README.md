@@ -104,9 +104,9 @@ onError | function | Callback when video cannot be loaded | null
 onBuffer | function | Callback when remote video is buffering | null
 onTimedMetadata | function | Callback when the stream receives some metadata | null
 
-`back` (function): This function will be called by the [Back](#back-1) control when it is pressed. The function can do anything, but it is intended to transition your navigation state backwards. Useful for full screen players. If this prop is not provided, the Back button will not be displayed.
+`back` (function): This function will be called by the [Back](#back) control when it is pressed. The function can do anything, but it is intended to transition your navigation state backwards. Useful for full screen players. If this prop is not provided, the Back button will not be displayed.
 
-`styles` (object): Define styles for the player, grouped by component name. See the [Styles](#styles-1) section for more details.
+`styles` (object): Define styles for the player, grouped by component name. See the [Styles](#styles) section for more details.
 
 `theme` (object): A convenient way to define styles for multiple components at once. See the [Themes](#themes) section for more details.
 
