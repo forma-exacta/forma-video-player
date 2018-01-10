@@ -67,6 +67,7 @@ import {Player} from 'forma-video-player'
   styles=object
   theme=object
   layout=object
+  integrateRedux=boolean
 />
 ```
 
@@ -111,6 +112,8 @@ onTimedMetadata | function | Callback when the stream receives some metadata | n
 `theme` (object): A convenient way to define styles for multiple components at once. See the [Themes](#themes) section for more details.
 
 `layout` (object): Override the default layout for the player. See the [Layout](#layout) section for more details.
+
+`integrateRedux` (boolean): Use an existing store for the player redux state. You must also integrate the player reducer into your store if you do this by using `createReducer()`. See [Redux Integration](#redux-integration) for more info.
 
 ## Layout
 By default, the player is laid out on a grid consisting of a [Header](#header), [Body](#body) and [Footer](#footer), each of which is divided into a Left, Middle, and Right [ControlGroup](#controlgroup)
@@ -568,7 +571,40 @@ export default styles((state, theme) => ({
 ```
 
 ## Redux Integration
-Coming soon...currently the player uses its own store, even if a Provider already exists.
+By default, the player will manage its state internally with redux by creating its own store and Provider. This is not ideal.
+
+If you are using redux in your application, you can integrate the Player state into your store by integrating the Player reducer with `createReducer()` and setting `integrateRedux={true}` on the Player component.
+
+##### `Example: Integrate Redux`
+
+```
+import {Player, createReducer} from 'forma-video-player'
+import {createStore, combineReducers} from 'redux'
+import {Provider} from 'react-redux'
+
+const store = createStore(combineReducers({
+  player: createReducer()
+}))
+
+const videoProps = {
+  name: 'Big Buck Bunny',
+  source: {
+    uri: 'https://archive.org/download/BigBuckBunny_328/BigBuckBunny_512kb.mp4'
+  }
+}
+
+...
+
+render() {
+  return (
+    <Provider store={store}>
+      <View style={{flex: 1}}>
+        <Player integrateRedux={true} videoProps={videoProps} />
+      </View>
+    </Provider>
+  )
+}
+```
 
 ## Roadmap
 * Add more style / theme options

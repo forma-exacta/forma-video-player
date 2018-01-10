@@ -14,8 +14,8 @@ export default class PlayerWrapper extends Component {
   constructor(props, context) {
     super(props)
 
-    if(!context.store) {
-      this.store = createStore(createReducer())
+    if(!props.integrateRedux) {
+      this.store = createStore(combineReducers({player:createReducer()}))
     }
 
   }

@@ -39,10 +39,10 @@ describe('PlayerWrapper', () => {
 
   })
 
-  describe('when parent has a store in context', () => {
+  describe('when integrateRedux is true', () => {
 
     it('should not render a provider of its own', () => {
-      const playerWrapper = shallow(<PlayerWrapper videoProps={videoProps} />, {context: {store: {}}})
+      const playerWrapper = shallow(<PlayerWrapper integrateRedux={true} videoProps={videoProps} />, {context: {store: {}}})
 
       expect(playerWrapper.find(Provider).length).toEqual(0)
     })
