@@ -14,27 +14,10 @@ export default class PlayerWrapper extends Component {
   constructor(props, context) {
     super(props)
 
-    if(!context.store) {
-      this.store = createStore(createReducer())
-    }
-
-  }
-
-  render() {
-
-    return (
-      <Provider store={this.store}>
-        <Player {...this.props} />
-      </Provider>
-    )
-
-    // return this.store ? (
-    //   <Provider store={this.store}>
-    //     <Player {...this.props} />
-    //   </Provider>
-    // ) : (
-    //   <Player {...this.props} />
-    // )
+    this.store = createStore(createReducer())
+    // if(!context.store) {
+    //   this.store = createStore(createReducer())
+    // }
 
   }
 
