@@ -18,7 +18,7 @@ describe('Player', () => {
   let store
 
   beforeEach(() => {
-    store = mockStore({})
+    store = mockStore({player: {}})
   })
 
   it('should render PlayerControls Component', () => {
@@ -41,7 +41,7 @@ describe('Player', () => {
   })
 
   it('should have paused state prop', () => {
-    const player = shallow(<Player store={mockStore({paused: true})} videoProps={videoProps} />)
+    const player = shallow(<Player store={mockStore({player:{paused: true}})} videoProps={videoProps} />)
 
     expect(player.prop('player').paused).toEqual(true)
   })

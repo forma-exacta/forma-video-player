@@ -10,7 +10,7 @@ import * as util from './util'
 describe('connectVideo', () => {
 
   class TestComponent extends Component {render() {return null}}
-  const mockState = {player:{test: true}, styles:{}}
+  const mockState = {player:{test: true, styles:{}}}
   const mockStore = configureStore()
   let store, renderer
 

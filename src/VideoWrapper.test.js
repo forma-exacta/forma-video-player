@@ -8,7 +8,7 @@ describe('VideoWrapper', () => {
   let store
 
   beforeEach(() => {
-    store = mockStore({})
+    store = mockStore({player: {}})
   })
 
   describe('when videoProps are passed', () => {

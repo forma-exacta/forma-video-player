@@ -14,6 +14,8 @@ export const actions = {
 }
 
 export const reducer = combineReducers({
-  ...player.reducer,
-  currentTime: currentTime.reducer,
+  player: combineReducers({
+    ...player.reducer,
+    currentTime: currentTime.reducer
+  })
 })

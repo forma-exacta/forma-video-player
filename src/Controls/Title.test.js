@@ -6,7 +6,7 @@ import {defaultTheme} from '../defaultTheme'
 
 describe('Title', () => {
 
-  const initialState = {name: 'test', styles: {}, theme: defaultTheme}
+  const initialState = {player:{name: 'test', styles: {}, theme: defaultTheme}}
   const mockStore = configureStore()
   let store, container
 

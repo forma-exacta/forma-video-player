@@ -14,10 +14,9 @@ export default class PlayerWrapper extends Component {
   constructor(props, context) {
     super(props)
 
-    this.store = createStore(createReducer())
-    // if(!context.store) {
-    //   this.store = createStore(createReducer())
-    // }
+    if(!context.store) {
+      this.store = createStore(createReducer())
+    }
 
   }
 

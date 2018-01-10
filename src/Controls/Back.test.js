@@ -8,7 +8,7 @@ import {defaultTheme} from '../defaultTheme'
 
 describe('Back', () => {
 
-  const initialState = {styles: {}, theme: defaultTheme}
+  const initialState = {player:{styles: {}, theme: defaultTheme}}
   const mockStore = configureStore()
   let store, container
 
@@ -27,7 +27,9 @@ describe('Back', () => {
 
   it('should use "back" function from state', () => {
     const mockBack = jest.fn()
-    const store = mockStore({...initialState, back: mockBack})
+    let newState = {...initialState}
+    newState.player.back = mockBack
+    const store = mockStore(newState)
 
     const rendered = shallow(<Back store={store} />).dive().dive().dive()
     rendered.find(TouchableHighlight).first().props().onPress()

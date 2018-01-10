@@ -7,7 +7,7 @@ import {defaultTheme} from '../defaultTheme'
 
 describe('Mute', () => {
 
-  const initialState = {muted: false, styles: {}, theme: defaultTheme}
+  const initialState = {player:{muted: false, styles: {}, theme: defaultTheme}}
   const mockStore = configureStore()
   let store, container
 
@@ -27,12 +27,17 @@ describe('Mute', () => {
   it('should toggle mute on press', () => {
     let diveContainer
 
-    makeMockStore({...initialState, muted:false})
+    let newState = {...initialState}
+    newState.player.muted = false
+
+    makeMockStore(newState)
     diveContainer = container.dive().dive().dive()
     diveContainer.find(CircularButton).first().props().onPress()
     expect(store.getActions()[0].payload).toEqual(true)
 
-    makeMockStore({...initialState, muted:true})
+    newState.player.muted = true
+
+    makeMockStore(newState)
     diveContainer = container.dive().dive().dive()
     diveContainer.find(CircularButton).first().props().onPress()
     expect(store.getActions()[0].payload).toEqual(false)

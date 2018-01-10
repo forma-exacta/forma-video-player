@@ -7,7 +7,7 @@ import {defaultTheme} from '../defaultTheme'
 
 describe('PlayerTime', () => {
 
-  const initialState = {currentTime: 0, duration: 10, styles: {}, theme: defaultTheme}
+  const initialState = {player:{currentTime: 0, duration: 10, styles: {}, theme: defaultTheme}}
   const mockStore = configureStore()
   let store, container
 

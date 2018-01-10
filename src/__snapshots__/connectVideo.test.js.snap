@@ -8,6 +8,6 @@ Object {
 
 exports[`connectVideo should have redux props 1`] = `
 Object {
-  "test": undefined,
+  "test": true,
 }
 `;

@@ -11,7 +11,7 @@ export const connectVideo = (
 
   return (WrappedComponent) => {
     return connect(
-      (state) => ({player: videoState.reduce((result, key) => ({...result, [key]: state[key]}), {})}),
+      (state) => ({player: videoState.reduce((result, key) => ({...result, [key]: state.player[key]}), {})}),
       (dispatch) => ({actions: bindActionCreators(videoActions, dispatch)}),
       mergeProps,
       options

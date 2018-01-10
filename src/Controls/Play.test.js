@@ -7,7 +7,7 @@ import {defaultTheme} from '../defaultTheme'
 
 describe('Play', () => {
 
-  const initialState = {paused: false, styles: {}, theme: defaultTheme}
+  const initialState = {player:{paused: false, styles: {}, theme: defaultTheme}}
   const mockStore = configureStore()
   let store, container
 
@@ -27,12 +27,17 @@ describe('Play', () => {
   it('should toggle play on press', () => {
     let diveContainer
 
-    makeMockStore({...initialState, paused:false})
+    let newState = {...initialState}
+    newState.player.paused = false
+
+    makeMockStore(newState)
     diveContainer = container.dive().dive().dive()
     diveContainer.find(CircularButton).first().props().onPress()
     expect(store.getActions()[0].payload).toEqual(true)
 
-    makeMockStore({...initialState, paused:true})
+    newState.player.paused = true
+
+    makeMockStore(newState)
     diveContainer = container.dive().dive().dive()
     diveContainer.find(CircularButton).first().props().onPress()
     expect(store.getActions()[0].payload).toEqual(false)

@@ -12,8 +12,10 @@ describe('styles', () => {
 
   it('should connect style and theme', () => {
     const store = mockStore({
-      styles: 'test',
-      theme: 'test'
+      player:{
+        styles: 'test',
+        theme: 'test'
+      }
     })
     const Wrapped = styles(() => {})(BaseComponent)
     const shallowStyle = shallow(<Wrapped />, {context: {store}})
@@ -24,9 +26,11 @@ describe('styles', () => {
 
   it('should call function with style and theme', () => {
     const initialState = {
-      styles: {
-        BaseComponent: {
-          test: 'test'
+      player: {
+        styles: {
+          BaseComponent: {
+            test: 'test'
+          }
         }
       },
       theme: 'testTheme'
@@ -37,8 +41,8 @@ describe('styles', () => {
     const shallowStyle = shallow(<Wrapped />, {context: {store}}).dive()
 
     expect(func.mock.calls.length).toBe(1)
-    expect(func.mock.calls[0][0]).toEqual(initialState.styles)
-    expect(func.mock.calls[0][1]).toEqual(initialState.theme)
+    expect(func.mock.calls[0][0]).toEqual(initialState.player.styles)
+    expect(func.mock.calls[0][1]).toEqual(initialState.player.theme)
   })
 
 })
