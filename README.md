@@ -575,6 +575,8 @@ By default, the player will manage its state internally with redux by creating i
 
 If you are using redux in your application, you can integrate the Player state into your store by integrating the Player reducer with `createReducer()` and setting `integrateRedux={true}` on the Player component.
 
+> **Important** The key in your root reducer must be `player` for the Player reducer. This is a limitation we hope to work around in the future.
+
 ##### `Example: Integrate Redux`
 
 ```
