@@ -58,7 +58,7 @@ class Play extends Component {
       iconName = 'pause'
     }
 
-    return (<Icon name={iconName} size={icon.size} color={icon.color} />)
+    return (<Icon name={iconName} size={this.props.buttonSize} color={icon.color} />)
   }
 
   render() {
